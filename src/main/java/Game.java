@@ -9,19 +9,13 @@ public class Game {
         } else {
             int count = 0;
 
-            if(guessNumber.charAt(0) == question.charAt(0)) {
-                ++count;
+            for (int i = 0; i < 3; ++i) {
+                if (guessNumber.charAt(i) == question.charAt(i)) {
+                    ++count;
+                }
             }
 
-            if(guessNumber.charAt(1) == question.charAt(1)) {
-                ++count;
-            }
-
-            if(guessNumber.charAt(2) == question.charAt(2)) {
-                ++count;
-            }
-
-            if(count != 0) {
+            if (count != 0) {
                 return new GuessResult(false, count, 0);
             }
 
