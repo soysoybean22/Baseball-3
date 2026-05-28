@@ -7,16 +7,23 @@ public class Game {
         if (guessNumber.equals(question)) {
             return new GuessResult(true, 3, 0);
         } else {
-            int count = 0;
+            int strikeCount = 0;
+            int ballCount = 0;
 
             for (int i = 0; i < 3; ++i) {
-                if (guessNumber.charAt(i) == question.charAt(i)) {
-                    ++count;
+                for (int j = 0; j < 3; ++j) {
+                    if (guessNumber.charAt(i) == question.charAt(j)) {
+                        if (i == j) {
+                            ++strikeCount;
+                        } else {
+                            ++ballCount;
+                        }
+                    }
                 }
             }
 
-            if (count != 0) {
-                return new GuessResult(false, count, 0);
+            if (strikeCount != 0 || ballCount != 0) {
+                return new GuessResult(false, strikeCount, ballCount);
             }
 
             return new GuessResult(false, 0, 0);
