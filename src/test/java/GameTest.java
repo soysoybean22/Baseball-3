@@ -59,4 +59,10 @@ class GameTest {
         assertThat(result.getStrikes()).isEqualTo(strikes);
         assertThat(result.getBalls()).isEqualTo(balls);
     }
+
+    @Test
+    void returnSolvedResult2S0B() {
+        generateQuestion("123");
+        assertMatchedNumber(game.guess("124"), false, 2, 0);
+    }
 }

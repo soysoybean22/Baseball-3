@@ -7,6 +7,24 @@ public class Game {
         if (guessNumber.equals(question)) {
             return new GuessResult(true, 3, 0);
         } else {
+            int count = 0;
+
+            if(guessNumber.charAt(0) == question.charAt(0)) {
+                ++count;
+            }
+
+            if(guessNumber.charAt(1) == question.charAt(1)) {
+                ++count;
+            }
+
+            if(guessNumber.charAt(2) == question.charAt(2)) {
+                ++count;
+            }
+
+            if(count != 0) {
+                return new GuessResult(false, count, 0);
+            }
+
             return new GuessResult(false, 0, 0);
         }
     }
