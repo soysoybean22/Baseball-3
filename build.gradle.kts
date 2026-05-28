@@ -12,6 +12,8 @@ repositories {
 dependencies {
 // Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+    // Source: https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation("org.assertj:assertj-core:3.24.2")
 }
 
 tasks.test {
