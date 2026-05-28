@@ -18,7 +18,6 @@ public class Game {
                     ballCount++;
                 }
             }
-
             return new GuessResult(false, strikeCount, ballCount);
         }
     }
