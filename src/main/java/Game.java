@@ -10,23 +10,16 @@ public class Game {
             int strikeCount = 0;
             int ballCount = 0;
 
-            for (int i = 0; i < 3; ++i) {
-                for (int j = 0; j < 3; ++j) {
-                    if (guessNumber.charAt(i) == question.charAt(j)) {
-                        if (i == j) {
-                            ++strikeCount;
-                        } else {
-                            ++ballCount;
-                        }
-                    }
+            for (int i = 0; i < 3; i++) {
+                char c = guessNumber.charAt(i);
+                if (c == question.charAt(i)) {
+                    strikeCount++;
+                } else if (question.indexOf(c) >= 0) {
+                    ballCount++;
                 }
             }
 
-            if (strikeCount != 0 || ballCount != 0) {
-                return new GuessResult(false, strikeCount, ballCount);
-            }
-
-            return new GuessResult(false, 0, 0);
+            return new GuessResult(false, strikeCount, ballCount);
         }
     }
 
